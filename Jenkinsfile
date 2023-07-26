@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven 3.8.7' 
+        maven 'Maven 3.9.3' 
     }
 
     stages {
@@ -33,11 +33,11 @@ pipeline {
             // Archiver le fichier html du rapport
             archiveArtifacts artifacts: 'target/cucumber-html-reports/cucumber.html', fingerprint: true
 
-            // Envoyer l'email avec les rapports en pièces jointes
+            // Envoyer l'email avec les rapports en piï¿½ces jointes
             emailext (
                 to: 'proservicetestauto@gmail.com', // Remplacez par l'adresse email du destinataire
                 subject: 'Rapport de test Cucumber',
-                body: 'Bonjour,\nVeuillez trouver ci-joint les rapports générés par Cucumber.',
+                body: 'Bonjour,\nVeuillez trouver ci-joint les rapports gï¿½nï¿½rï¿½s par Cucumber.',
                 attachmentsPattern: 'target/cucumber-html-reports/cucumber.html,target/cucumber.json'
             )
         }
